@@ -124,31 +124,43 @@ public class MyFile {
             }
         }
     }
-     public void escribir() {
+    public void escribir() {
         System.out.println("Ingrese la ruta del archivo para reemplazar el contenido:");
         String rutaArchivo = leer.next();
         File archivo = new File(rutaArchivo);
         try (FileWriter writer = new FileWriter(archivo)) {
-            writer.write(contenido);
+            writer.write("contenido a reemplazar");
             System.out.println("Contenido reemplazado exitosamente.");
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-     
+
     public void mantener() {
         System.out.println("Ingrese la ruta del archivo para agregar contenido:");
         String rutaArchivo = leer.next();
         File archivo = new File(rutaArchivo);
         try (FileWriter writer = new FileWriter(archivo, true)) {
-            writer.write(contenido);
+            writer.write("contenido a agregar");
             System.out.println("Contenido agregado exitosamente.");
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-     
-    
+
+    public void leer() {
+        System.out.println("Ingrese nombre del archivo para leer:");
+        String rutaArchivo = leer.next();
+        File archivo = new File(rutaArchivo);
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
 
 
 }// Fin de la clase myfile
