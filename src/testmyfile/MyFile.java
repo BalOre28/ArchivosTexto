@@ -124,7 +124,7 @@ public class MyFile {
             }
         }
     }
-     public void escribir(String contenido) {
+     public void escribir() {
         System.out.println("Ingrese la ruta del archivo para reemplazar el contenido:");
         String rutaArchivo = leer.next();
         File archivo = new File(rutaArchivo);
@@ -136,7 +136,19 @@ public class MyFile {
         }
     }
      
-   
+    public void mantener() {
+        System.out.println("Ingrese la ruta del archivo para agregar contenido:");
+        String rutaArchivo = leer.next();
+        File archivo = new File(rutaArchivo);
+        try (FileWriter writer = new FileWriter(archivo, true)) {
+            writer.write(contenido);
+            System.out.println("Contenido agregado exitosamente.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
+     
+    
 
 
 }// Fin de la clase myfile
