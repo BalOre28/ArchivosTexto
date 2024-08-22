@@ -28,8 +28,10 @@ public class TestMyFile {
             System.out.println("5- Borrar.");
             System.out.println("6- CMD - DIR.");
             System.out.println("7- Tree.");
-            System.out.println("8- Tree.");
-            System.out.println("9- Salir.");
+            System.out.println("8- Escribir y reemplazar.");
+            System.out.println("9- Escribir y mantener.");
+            System.out.println("10- Leer");
+            System.out.println("11- Salir.");
             System.out.println("Escoja una opción");
             try {
                 opcion = leer.nextInt();
@@ -57,8 +59,15 @@ public class TestMyFile {
                         mf.tree();
                         break;    
                     case 8:
-                        mf.archivo();
+                        mf.escribir();
                         break;
+                    case 9:
+                        mf.mantener();
+                        break;
+                    case 10: 
+                        mf.leer();
+                        break;
+                        
                 }
             } catch (InputMismatchException e) {
                 leer.nextLine();
@@ -71,7 +80,7 @@ public class TestMyFile {
                 System.out.println("Error :" + e.getMessage());
             }
 
-        } while (opcion != 9);
+        } while (opcion !=11);
 
     }
 

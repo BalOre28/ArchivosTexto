@@ -124,20 +124,19 @@ public class MyFile {
             }
         }
     }
-     public void archivo(){
-       // Solicita al usuario los datos a guardar en el archivo
-        System.out.println("Ingrese su nombre: ");
-        String nombre = leer.nextLine();
-
-        System.out.println("Ingrese su edad: ");
-        String edad = leer.nextLine();
-
-        System.out.println("Ingrese su email: ");
-        String email = leer.nextLine();
-
-        
-        
+     public void escribir(String contenido) {
+        System.out.println("Ingrese la ruta del archivo para reemplazar el contenido:");
+        String rutaArchivo = leer.next();
+        File archivo = new File(rutaArchivo);
+        try (FileWriter writer = new FileWriter(archivo)) {
+            writer.write(contenido);
+            System.out.println("Contenido reemplazado exitosamente.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo: " + e.getMessage());
+        }
     }
+     
+   
 
 
 }// Fin de la clase myfile
